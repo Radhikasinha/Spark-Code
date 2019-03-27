@@ -28,3 +28,19 @@ Attached spark code is used to Process task 2 and task3
 It save the output as text file at location specified in the program.
 Path is commented in spark_cc.py file.
 Output of Task3 is attached with name part-00000. 
+
+
+MapReduce code of Driver.Java and final output.java
+Map Reduce Task
+1.Use the same cleaned file saved during spark cleaning.
+ 2. Attached Driver.java file is executed for task 2.
+Export the jar file and run it on cluster.
+hadoop jar project2.jar Maincode.Driver /user/sinhark/Data/cleanspark2.txt /user/sinhark/New1/
+Once executed out file will be generated at /user/sinhark/New1/part-r-00000
+3.copy part-r-00000  file to local
+hadoop fs -copyToLocal /user/sinhark/New1/part-r-00000 /home/sinhark/
+
+3.Execute attached finalOutput.java by exporting jar file and running it on cluster.
+hadoop jar project2.jar Maincode.finalOutput
+Final output will be saved to out.txt file.
+Attached is the file.
