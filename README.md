@@ -3,11 +3,17 @@ All Spark and Map Reduce code is implemented on NYPD_Motor_Vehicle_WithOutHeader
 Below  python spark code used for cleaning the data either in interactive mode or submit mode.
 
 import sys
+
 from pyspark import SparkContext, SparkConf
+
 from pyspark.sql import SQLContext, SparkSession
+
 from pyspark.sql.types import *
+
 from pyspark.sql.functions import col
+
 from operator import add
+
 
 def dataprocessing(sc,filename):
 
@@ -22,6 +28,7 @@ def dataprocessing(sc,filename):
         
         df1.repartition(1).write.format("csv").save("/user/sinhark/Data/cleanspark")
 
+ 
  if __name__ == "__main__":
         
         conf = SparkConf().setAppName("Spark CC Project2")
