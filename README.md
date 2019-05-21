@@ -22,7 +22,7 @@ def dataprocessing(sc,filename):
         
         df1.repartition(1).write.format("csv").save("/user/sinhark/Data/cleanspark")
 
-if __name__ == "__main__":
+ if __name__ == "__main__":
         
         conf = SparkConf().setAppName("Spark CC Project2")
         sc = SparkSession.builder.master("local").appName("Spark cc Project2").getOrCreate()
