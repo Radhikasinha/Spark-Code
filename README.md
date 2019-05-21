@@ -10,17 +10,24 @@ from pyspark.sql.functions import col
 from operator import add
 
 def dataprocessing(sc,filename):
+
         df =sc.read.csv(filename, header = True)
+        
         df.show(2)
+        
         new_df = df.select(df['#Date'], df['Borough'], df['ZIP Code'],df['NUMBER OF PERSONS INJURED'], df['NUMBER OF PERSONS KILLED'],df['NUMBER OF PEDESTRIANS KILLED'], df['NUMBER OF CYCLIST INJURED'],df['NUMBER OF CYCLIST KILLED'],df['NUMBER OF MOTORIST INJURED'], df['NUMBER OF MOTORIST KILLED'],df['VEHICLE TYPE CODE 1'])
 
         df1 = new_df.na.drop()
 #cleaned data is saved as text file
+        
         df1.repartition(1).write.format("csv").save("/user/sinhark/Data/cleanspark")
+
 if __name__ == "__main__":
+        
         conf = SparkConf().setAppName("Spark CC Project2")
         sc = SparkSession.builder.master("local").appName("Spark cc Project2").getOrCreate()
         dataprocessing(sc,sys.argv[1])
+
 Cleaned data is saved at location “/user/sinhark/Data/cleanspark/*txt file
 Once the clean data is saved it can used  for processing data by running attached spark(spark_cc.py) file in submit mode and providing the cleaned data path as input in command.
 Open nano spark_cc.py file in cluster
