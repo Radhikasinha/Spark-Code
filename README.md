@@ -1,5 +1,6 @@
 # Spark-Code
-All Spark and Map Reduce code is implemented on NYPD_Motor_Vehicle_WithOutHeader dataset
+Data Analysis using pyspark and Map Reduce code on NYPD_Motor_Vehicle_WithOutHeader dataset. 
+
 Below  pyspark code used for cleaning the data either in interactive mode or submit mode.
 
 import sys
